@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alejandro Requena</title>
+<meta name="description" content="Portafolio de Alejandro Requena, estudiante de Ingeniería en Ciencias y Sistemas orientado a seguridad informática.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: encabezado con rutas tipo sistema de archivos; secciones en retícula 1/3 + 2/3 separadas por líneas finas; acento ámbar de "alerta" */
+:root{
+  --bg:#0f1115; --panel:#14171d; --ink:#eceef2; --muted:#8b93a3; --line:#252a33;
+  --accent:#ffb020; --accent-ink:#1a1206; --ok:#4ccf8f;
+  --f-display:"Archivo", "Arial Narrow", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.gutter{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.inner{max-width:1180px;margin:0 auto}
+.mono{font-family:var(--f-mono)}
+
+/* Header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(15,17,21,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .inner{display:flex;align-items:center;gap:24px;padding-block:16px}
+.brand{font-family:var(--f-display);font-weight:800;font-stretch:118%;font-size:18px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.brand b{color:var(--accent)}
+nav{display:flex;gap:22px;margin-left:auto}
+nav a{font-family:var(--f-mono);font-size:13px;color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+.lang{display:inline-flex;border:1px solid var(--line)}
+.lang button{font-family:var(--f-mono);font-size:12px;background:transparent;color:var(--muted);border:0;padding:6px 10px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.cv-btn{font-family:var(--f-mono);font-size:13px;text-decoration:none;background:var(--accent);color:var(--accent-ink);padding:9px 14px;font-weight:500;white-space:nowrap}
+.cv-btn:hover{filter:brightness(1.08)}
+@media (max-width:860px){nav{display:none}.lang{margin-left:auto}}
+@media (max-width:420px){.brand{font-size:16px}.cv-btn{padding:8px 10px}}
+
+/* Hero */
+.hero .inner{padding-block:88px 72px;display:flex;flex-direction:column;gap:24px}
+.path{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.path span{color:var(--accent)}
+.hero h1{margin:0;font-family:var(--f-display);font-weight:900;font-stretch:125%;font-size:clamp(44px,9.5vw,124px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase}
+.hero h1 .thin{display:block;font-weight:500;font-stretch:100%;color:var(--muted)}
+.hero p.role{margin:0;max-width:44ch;font-size:clamp(18px,2.2vw,22px);color:var(--ink)}
+.status{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);width:fit-content;max-width:100%}
+.status div{font-family:var(--f-mono);font-size:12.5px;padding:8px 14px;border-right:1px solid var(--line);color:var(--muted)}
+.status div:last-child{border-right:0}
+.status b{color:var(--ink);font-weight:500}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:8px;vertical-align:1px}
+
+/* Sections */
+.sec{border-top:1px solid var(--line)}
+.sec .inner{display:grid;grid-template-columns:1fr 2fr;padding-block:64px;column-gap:56px;row-gap:24px}
+.sec .label{display:flex;flex-direction:column;gap:10px;position:sticky;top:96px;align-self:start}
+.sec .label .path{font-size:12.5px}
+.sec h2{margin:0;font-family:var(--f-display);font-weight:800;font-stretch:115%;font-size:clamp(30px,4vw,44px);line-height:1;text-transform:uppercase;letter-spacing:-.02em;text-wrap:balance}
+.body{display:flex;flex-direction:column;gap:20px;min-width:0}
+.body p{margin:0;max-width:62ch;color:#cfd3db}
+@media (max-width:760px){.sec .inner{grid-template-columns:1fr;padding-block:48px}.sec .label{position:static}}
+
+/* Experience */
+.job{display:grid;grid-template-columns:140px 1fr;gap:20px;padding-block:22px;border-bottom:1px solid var(--line)}
+.job:first-child{padding-top:0}
+.job:last-child{border-bottom:0}
+.job .when{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);padding-top:4px}
+.job h3{margin:0 0 6px;font-family:var(--f-display);font-weight:700;font-stretch:108%;font-size:21px;line-height:1.25}
+.job .org{color:var(--accent);font-family:var(--f-mono);font-size:13px;display:block;margin-bottom:10px}
+.job ul{margin:0;padding-left:18px;color:#cfd3db;display:flex;flex-direction:column;gap:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tags span{font-family:var(--f-mono);font-size:12px;border:1px solid var(--line);color:var(--muted);padding:2px 8px}
+@media (max-width:520px){.job{grid-template-columns:1fr;gap:6px}}
+
+/* Security matrix */
+.matrix{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-mono);font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:var(--panel)}
+td:first-child{font-weight:600;white-space:nowrap}
+td{color:#cfd3db}
+.st{font-family:var(--f-mono);font-size:11.5px;padding:3px 8px;white-space:nowrap;border:1px solid}
+.st.ok{color:var(--ok);border-color:rgba(76,207,143,.4)}
+.st.learn{color:var(--accent);border-color:rgba(255,176,32,.4)}
+
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.proj{padding:24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px;min-width:0}
+.proj .idx{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.proj h3{margin:0;font-family:var(--f-display);font-weight:800;font-stretch:112%;font-size:22px;text-transform:uppercase}
+.proj p{margin:0;font-size:15px;color:#cfd3db}
+.proj .tags{margin-top:auto;padding-top:6px}
+
+/* Skills & education */
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px 32px;margin:0}
+.kv div{border-top:1px solid var(--line);padding-top:12px}
+.kv dt{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:4px}
+.kv dd{margin:0}
+
+/* Contact */
+.contact{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.contact div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding-block:14px;border-bottom:1px solid var(--line);align-items:baseline}
+.contact dt{font-family:var(--f-mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.contact dd{margin:0;font-family:var(--f-mono);font-size:15px;overflow-wrap:anywhere}
+.contact a{text-decoration-color:var(--accent);text-underline-offset:4px}
+@media (max-width:460px){.contact div{grid-template-columns:1fr;gap:2px}}
+
+.todo{background:rgba(255,176,32,.14);color:var(--accent);padding:0 5px;font-family:var(--f-mono);font-size:.9em}
+footer{border-top:1px solid var(--line)}
+footer .inner{padding-block:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="top gutter">
+  <div class="inner">
+    <a class="brand" href="#inicio">A. REQUENA<b>.</b></a>
+    <nav aria-label="Secciones">
+      <a href="#sobre-mi" data-en="/about">/sobre-mi</a>
+      <a href="#experiencia" data-en="/experience">/experiencia</a>
+      <a href="#seguridad" data-en="/security">/seguridad</a>
+      <a href="#proyectos" data-en="/projects">/proyectos</a>
+      <a href="#contacto" data-en="/contact">/contacto</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="lang-es" aria-pressed="true">ES</button>
+      <button type="button" id="lang-en" aria-pressed="false">EN</button>
+    </div>
+    <a class="cv-btn" href="cv.pdf" download data-en="CV ↓">CV ↓</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero gutter">
+    <div class="inner">
+      <div class="path">~/<span>alejandro-requena</span></div>
+      <h1>Alejandro<span class="thin">Requena</span></h1>
+      <p class="role" data-en="Computer Science and Systems Engineering student. I build applications with authentication, access control and Linux deployments, and I'm specializing in information security.">Estudiante de Ingeniería en Ciencias y Sistemas. Desarrollo aplicaciones con autenticación, control de accesos y despliegue en Linux, y me estoy especializando en seguridad informática.</p>
+      <div class="status">
+        <div><span class="dot"></span><b data-en="Available">Disponible</b></div>
+        <div data-en="Guatemala · UTC−6">Guatemala · UTC−6</div>
+        <div data-en="Spanish · English B2">Español · Inglés B2</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec gutter" id="sobre-mi">
+    <div class="inner">
+      <div class="label">
+        <span class="path" data-en="~/about">~/sobre-mi</span>
+        <h2 data-en="About">Sobre mí</h2>
+      </div>
+      <div class="body">
+        <p data-en="I'm Alejandro, a final-semester Computer Science and Systems Engineering student at Universidad de San Carlos de Guatemala, Centro Universitario del Norte.">Soy Alejandro, estudiante de décimo y último semestre de Ingeniería en Ciencias y Sistemas en la Universidad de San Carlos de Guatemala, Centro Universitario del Norte.</p>
+        <p data-en="I've built platforms with JWT authentication, user and permission management, deployed on Linux servers with Docker. I'm now steering that experience toward information security: access control, infrastructure protection and secure development.">He desarrollado plataformas con autenticación JWT y gestión de usuarios y permisos, desplegadas en servidores Linux con Docker. Ahora oriento esa experiencia hacia la seguridad informática: control de accesos, protección de la infraestructura y desarrollo seguro.</p>
+        <p data-en="I enjoy math, physics and competitive challenges. I learn fast and like understanding how systems work from the inside.">Me gustan las matemáticas, la física y los retos competitivos. Aprendo rápido y disfruto entender cómo funcionan los sistemas por dentro.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec gutter" id="experiencia">
+    <div class="inner">
+      <div class="label">
+        <span class="path" data-en="~/experience">~/experiencia</span>
+        <h2 data-en="Experience">Experiencia</h2>
+      </div>
+      <div class="body">
+        <article class="job">
+          <div class="when" data-en="Oct 2026 — now">oct 2026 — hoy</div>
+          <div>
+            <h3 data-en="Implementation Scholar">Becario de Implementación</h3>
+            <span class="org">Plus TI</span>
+            <ul>
+              <li data-en="Selected for Plus TI's paid six-month scholarship program in the Implementation area.">Seleccionado en el Programa de Becas remunerado de seis meses, área de Implementación.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="job">
+          <div class="when" data-en="Professional internship">Práctica profesional</div>
+          <div>
+            <h3 data-en="Full Stack Developer">Desarrollador Full Stack</h3>
+            <span class="org"><span class="todo" data-en="institution">institución</span></span>
+            <ul>
+              <li data-en="Institutional web platform for academic administration.">Plataforma web institucional para administración académica.</li>
+              <li data-en="JWT authentication and user management module.">Autenticación con JWT y módulo de gestión de usuarios.</li>
+              <li data-en="Cloud file storage with Cloudflare R2.">Almacenamiento de archivos en la nube con Cloudflare R2.</li>
+              <li data-en="Docker containers deployed on a Linux VPS.">Contenedores Docker desplegados en un servidor Linux (VPS).</li>
+            </ul>
+            <div class="tags"><span>ASP.NET Core</span><span>React</span><span>PostgreSQL</span><span>Docker</span><span>Linux</span><span>JWT</span></div>
+          </div>
+        </article>
+        <article class="job">
+          <div class="when" data-en="Freelance">Freelance</div>
+          <div>
+            <h3 data-en="Software Developer">Desarrollador de Software</h3>
+            <span class="org" data-en="Agricultural company">Empresa agropecuaria</span>
+            <ul>
+              <li data-en="ERP and point-of-sale system for sales, inventory and financial control.">Sistema ERP y punto de venta para ventas, inventario y control financiero.</li>
+              <li data-en="Database design and administrative dashboards for decision-making.">Diseño de la base de datos y dashboards administrativos para la toma de decisiones.</li>
+            </ul>
+            <div class="tags"><span>SQL</span><span>POS</span><span>Dashboards</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec gutter" id="seguridad">
+    <div class="inner">
+      <div class="label">
+        <span class="path" data-en="~/security">~/seguridad</span>
+        <h2 data-en="Applied security">Seguridad aplicada</h2>
+      </div>
+      <div class="body">
+        <p data-en="Where I've put each area into practice, and what I'm training in now.">Dónde he puesto en práctica cada área, y en qué me estoy formando ahora.</p>
+        <div class="matrix">
+          <table>
+            <thead><tr>
+              <th data-en="Area">Área</th><th data-en="Evidence">Evidencia</th><th data-en="Status">Estado</th>
+            </tr></thead>
+            <tbody>
+              <tr><td data-en="Access &amp; user control">Accesos y usuarios</td><td data-en="JWT authentication and user management on the academic platform; roles and permissions in webAMG.">Autenticación JWT y gestión de usuarios en la plataforma académica; roles y permisos en webAMG.</td><td><span class="st ok" data-en="In production">En producción</span></td></tr>
+              <tr><td>Linux</td><td data-en="Deployment and administration of a Linux VPS running Docker.">Despliegue y administración de un servidor VPS Linux con Docker.</td><td><span class="st ok" data-en="In production">En producción</span></td></tr>
+              <tr><td data-en="Databases">Bases de datos</td><td data-en="Design and administration in PostgreSQL and SQL Server for an ERP and an institutional platform.">Diseño y administración en PostgreSQL y SQL Server para un ERP y una plataforma institucional.</td><td><span class="st ok" data-en="In production">En producción</span></td></tr>
+              <tr><td data-en="Cybersecurity">Ciberseguridad</td><td data-en="Cisco Introduction to Cybersecurity (2025): network defense, system safeguards, threat analysis and security administration.">Cisco Introducción a la Ciberseguridad (2025): defensa de la red, salvaguardias del sistema, análisis de amenazas y administración de ciberseguridad.</td><td><span class="st ok" data-en="Certified">Certificado</span></td></tr>
+              <tr><td data-en="Networks">Redes</td><td data-en="Computer Networks 1 and 2 (USAC); Cisco Packet Tracer: networks and IoT (2025).">Redes de Computadoras 1 y 2 (USAC); Cisco Packet Tracer: redes e IoT (2025).</td><td><span class="st ok" data-en="Certified">Certificado</span></td></tr>            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec gutter" id="proyectos">
+    <div class="inner">
+      <div class="label">
+        <span class="path" data-en="~/projects">~/proyectos</span>
+        <h2 data-en="Projects">Proyectos</h2>
+      </div>
+      <div class="body">
+        <div class="projects">
+          <article class="proj">
+            <span class="idx" data-en="web + mobile">web + móvil</span>
+            <h3>webAMG</h3>
+            <p data-en="Django web and mobile app to manage projects, phases, tasks and notifications, with per-user permissions and a Spanish/English interface for a team managed from Canada.">App web y móvil en Django para gestionar proyectos, fases, tareas y notificaciones, con permisos por usuario e interfaz español/inglés para un equipo con jefatura en Canadá.</p>
+            <div class="tags"><span>Django</span><span>Python</span><span>i18n</span></div>
+          </article>
+          <article class="proj">
+            <span class="idx" data-en="institutional">institucional</span>
+            <h3 data-en="Academic platform">Plataforma académica</h3>
+            <p data-en="Institutional system with JWT authentication, user management and cloud storage, deployed on Linux with Docker.">Sistema institucional con autenticación JWT, gestión de usuarios y archivos en la nube, desplegado en Linux con Docker.</p>
+            <div class="tags"><span>ASP.NET Core</span><span>React</span><span>Docker</span></div>
+          </article>
+          <article class="proj">
+            <span class="idx">freelance</span>
+            <h3 data-en="Agri ERP">ERP agropecuario</h3>
+            <p data-en="ERP with point of sale, inventory and finance, plus dashboards for business management.">ERP con punto de venta, inventario y finanzas, con dashboards para la administración del negocio.</p>
+            <div class="tags"><span>SQL</span><span>Power BI</span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec gutter" id="habilidades">
+    <div class="inner">
+      <div class="label">
+        <span class="path" data-en="~/skills">~/habilidades</span>
+        <h2 data-en="Skills &amp; education">Habilidades y formación</h2>
+      </div>
+      <div class="body">
+        <dl class="kv">
+          <div><dt data-en="Databases">Bases de datos</dt><dd>PostgreSQL, SQL Server</dd></div>
+          <div><dt data-en="Languages">Lenguajes</dt><dd>Python, C#, JavaScript</dd></div>
+          <div><dt data-en="Infrastructure">Infraestructura</dt><dd>Linux, Docker, VPS, Cloudflare R2</dd></div>
+          <div><dt>Frameworks</dt><dd>Django, ASP.NET Core, React</dd></div>
+          <div><dt data-en="Data">Datos</dt><dd>Power BI, Tableau, Excel</dd></div>
+          <div><dt data-en="Version control">Versiones</dt><dd>Git, GitHub</dd></div>
+          <div><dt data-en="University · 2022 — now">Universidad · 2022 — hoy</dt><dd data-en="Computer Science and Systems Engineering, USAC – CUNOR. Tenth semester.">Ingeniería en Ciencias y Sistemas, USAC – CUNOR. Décimo semestre.</dd></div>
+          <div><dt data-en="High school · 2020 — 2021">Diversificado · 2020 — 2021</dt><dd data-en="High school diploma in Sciences and Letters.">Bachillerato en Ciencias y Letras.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec gutter" id="contacto">
+    <div class="inner">
+      <div class="label">
+        <span class="path" data-en="~/contact">~/contacto</span>
+        <h2 data-en="Contact">Contacto</h2>
+      </div>
+      <div class="body">
+        <dl class="contact">
+          <div><dt data-en="Email">Correo</dt><dd><span class="todo" data-en="your email">tu correo</span></dd></div>
+          <div><dt>GitHub</dt><dd>github.com/<span class="todo" data-en="username">usuario</span></dd></div>
+          <div><dt>LinkedIn</dt><dd>linkedin.com/in/<span class="todo" data-en="username">usuario</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="gutter">
+  <div class="inner">
+    <span>© 2026 Alejandro Requena</span>
+    <span data-en="Guatemala">Guatemala</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-en]'));
+  nodes.forEach(function(el){ el.dataset.es = el.innerHTML; });
+  var esBtn = document.getElementById('lang-es'), enBtn = document.getElementById('lang-en');
+  function setLang(lang){
+    nodes.forEach(function(el){ el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.es; });
+    document.documentElement.lang = lang;
+    esBtn.setAttribute('aria-pressed', lang === 'es');
+    enBtn.setAttribute('aria-pressed', lang === 'en');
+    try { localStorage.setItem('lang', lang); } catch(e){}
+  }
+  esBtn.addEventListener('click', function(){ setLang('es'); });
+  enBtn.addEventListener('click', function(){ setLang('en'); });
+  var saved = null;
+  try { saved = localStorage.getItem('lang'); } catch(e){}
+  if (saved === 'en') setLang('en');
+})();
+</script>
+</body>
+</html>
