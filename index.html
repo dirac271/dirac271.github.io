@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Alejandro Requena</title>
-<meta name="description" content="Portafolio de Alejandro Requena, estudiante de Ingeniería en Ciencias y Sistemas orientado a seguridad informática.">
+<meta name="description" content="Portafolio de Alejandro Requena, desarrollador full stack enfocado en integración de sistemas, arquitecturas serverless en AWS, APIs REST y plataformas CRM/ERP.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -55,9 +55,23 @@ nav a:hover{color:var(--ink)}
 .status{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);width:fit-content;max-width:100%}
 .status div{font-family:var(--f-mono);font-size:12.5px;padding:8px 14px;border-right:1px solid var(--line);color:var(--muted)}
 .status div:last-child{border-right:0}
+@media (max-width:560px){.status{width:100%}.status div{flex:1 1 100%;border-right:0;border-bottom:1px solid var(--line)}.status div:last-child{border-bottom:0}}
 .status b{color:var(--ink);font-weight:500}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:8px;vertical-align:1px}
 
+.kicker{margin:0;font-size:14px;color:var(--accent)}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font-family:var(--f-mono);font-size:13px;text-decoration:none;border:1px solid var(--line);padding:10px 16px;color:var(--ink)}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:500}
+/* Featured project */
+.proj.feat{grid-column:1/-1;gap:14px;background:var(--panel)}
+.proj.feat h3{font-size:clamp(24px,3vw,30px)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-family:var(--f-mono);font-size:12px;margin:4px 0}
+.flow span{border:1px solid var(--line);padding:5px 9px;color:var(--ink);background:var(--bg)}
+.flow i{font-style:normal;color:var(--accent)}
+.points{margin:0;padding-left:18px;color:#cfd3db;font-size:15px;display:flex;flex-direction:column;gap:4px}
+.links{display:flex;flex-wrap:wrap;gap:18px}
 /* Sections */
 .sec{border-top:1px solid var(--line)}
 .sec .inner{display:grid;grid-template-columns:1fr 2fr;padding-block:64px;column-gap:56px;row-gap:24px}
@@ -99,6 +113,8 @@ td{color:#cfd3db}
 .proj h3{margin:0;font-family:var(--f-display);font-weight:800;font-stretch:112%;font-size:22px;text-transform:uppercase}
 .proj p{margin:0;font-size:15px;color:#cfd3db}
 .proj .tags{margin-top:auto;padding-top:6px}
+.proj-link{font-family:var(--f-mono);font-size:13px;color:var(--accent);text-decoration:none}
+.proj-link:hover{text-decoration:underline;text-underline-offset:4px}
 
 /* Skills & education */
 .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px 32px;margin:0}
@@ -126,9 +142,9 @@ footer .inner{padding-block:28px;display:flex;justify-content:space-between;flex
     <a class="brand" href="#inicio">A. REQUENA<b>.</b></a>
     <nav aria-label="Secciones">
       <a href="#sobre-mi" data-en="/about">/sobre-mi</a>
-      <a href="#experiencia" data-en="/experience">/experiencia</a>
-      <a href="#seguridad" data-en="/security">/seguridad</a>
       <a href="#proyectos" data-en="/projects">/proyectos</a>
+      <a href="#experiencia" data-en="/experience">/experiencia</a>
+      <a href="#integracion" data-en="/integration">/integración</a>
       <a href="#contacto" data-en="/contact">/contacto</a>
     </nav>
     <div class="lang" role="group" aria-label="Idioma / Language">
@@ -144,10 +160,16 @@ footer .inner{padding-block:28px;display:flex;justify-content:space-between;flex
     <div class="inner">
       <div class="path">~/<span>alejandro-requena</span></div>
       <h1>Alejandro<span class="thin">Requena</span></h1>
-      <p class="role" data-en="Computer Science and Systems Engineering student. I build applications with authentication, access control and Linux deployments, and I'm specializing in information security.">Estudiante de Ingeniería en Ciencias y Sistemas. Desarrollo aplicaciones con autenticación, control de accesos y despliegue en Linux, y me estoy especializando en seguridad informática.</p>
+      <p class="kicker mono" data-en="Full Stack Developer · Systems integration &amp; cloud (AWS)">Desarrollador Full Stack · Integración de sistemas y cloud (AWS)</p>
+      <p class="role" data-en="I build web applications, REST APIs and event-driven integrations that connect academic, financial and administrative systems, with infrastructure as code and CI/CD.">Construyo aplicaciones web, APIs REST e integraciones orientadas a eventos que conectan sistemas académicos, financieros y administrativos, con infraestructura como código y CI/CD.</p>
+      <div class="cta">
+        <a class="btn primary" href="#proyectos" data-en="View featured project">Ver proyecto destacado</a>
+        <a class="btn" href="https://github.com/dirac271/admisiones-serverless" target="_blank" rel="noopener" data-en="Source on GitHub">Código en GitHub</a>
+        <a class="btn" href="cv.pdf" download data-en="Download CV">Descargar CV</a>
+      </div>
       <div class="status">
-        <div><span class="dot"></span><b data-en="Available">Disponible</b></div>
-        <div data-en="Guatemala · UTC−6">Guatemala · UTC−6</div>
+        <div><span class="dot"></span><b data-en="Available full-time · on-site">Disponible tiempo completo · presencial</b></div>
+        <div data-en="Relocating to Guatemala City">Traslado a Ciudad de Guatemala</div>
         <div data-en="Spanish · English B2">Español · Inglés B2</div>
       </div>
     </div>
@@ -160,81 +182,9 @@ footer .inner{padding-block:28px;display:flex;justify-content:space-between;flex
         <h2 data-en="About">Sobre mí</h2>
       </div>
       <div class="body">
-        <p data-en="I'm Alejandro, a final-semester Computer Science and Systems Engineering student at Universidad de San Carlos de Guatemala, Centro Universitario del Norte.">Soy Alejandro, estudiante de décimo y último semestre de Ingeniería en Ciencias y Sistemas en la Universidad de San Carlos de Guatemala, Centro Universitario del Norte.</p>
-        <p data-en="I've built platforms with JWT authentication, user and permission management, deployed on Linux servers with Docker. I'm now steering that experience toward information security: access control, infrastructure protection and secure development.">He desarrollado plataformas con autenticación JWT y gestión de usuarios y permisos, desplegadas en servidores Linux con Docker. Ahora oriento esa experiencia hacia la seguridad informática: control de accesos, protección de la infraestructura y desarrollo seguro.</p>
-        <p data-en="I enjoy math, physics and competitive challenges. I learn fast and like understanding how systems work from the inside.">Me gustan las matemáticas, la física y los retos competitivos. Aprendo rápido y disfruto entender cómo funcionan los sistemas por dentro.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec gutter" id="experiencia">
-    <div class="inner">
-      <div class="label">
-        <span class="path" data-en="~/experience">~/experiencia</span>
-        <h2 data-en="Experience">Experiencia</h2>
-      </div>
-      <div class="body">
-        <article class="job">
-          <div class="when" data-en="Oct 2026 — now">oct 2026 — hoy</div>
-          <div>
-            <h3 data-en="Implementation Scholar">Becario de Implementación</h3>
-            <span class="org">Plus TI</span>
-            <ul>
-              <li data-en="Selected for Plus TI's paid six-month scholarship program in the Implementation area.">Seleccionado en el Programa de Becas remunerado de seis meses, área de Implementación.</li>
-            </ul>
-          </div>
-        </article>
-        <article class="job">
-          <div class="when" data-en="Professional internship">Práctica profesional</div>
-          <div>
-            <h3 data-en="Full Stack Developer">Desarrollador Full Stack</h3>
-            <span class="org"><span class="todo" data-en="institution">institución</span></span>
-            <ul>
-              <li data-en="Institutional web platform for academic administration.">Plataforma web institucional para administración académica.</li>
-              <li data-en="JWT authentication and user management module.">Autenticación con JWT y módulo de gestión de usuarios.</li>
-              <li data-en="Cloud file storage with Cloudflare R2.">Almacenamiento de archivos en la nube con Cloudflare R2.</li>
-              <li data-en="Docker containers deployed on a Linux VPS.">Contenedores Docker desplegados en un servidor Linux (VPS).</li>
-            </ul>
-            <div class="tags"><span>ASP.NET Core</span><span>React</span><span>PostgreSQL</span><span>Docker</span><span>Linux</span><span>JWT</span></div>
-          </div>
-        </article>
-        <article class="job">
-          <div class="when" data-en="Freelance">Freelance</div>
-          <div>
-            <h3 data-en="Software Developer">Desarrollador de Software</h3>
-            <span class="org" data-en="Agricultural company">Empresa agropecuaria</span>
-            <ul>
-              <li data-en="ERP and point-of-sale system for sales, inventory and financial control.">Sistema ERP y punto de venta para ventas, inventario y control financiero.</li>
-              <li data-en="Database design and administrative dashboards for decision-making.">Diseño de la base de datos y dashboards administrativos para la toma de decisiones.</li>
-            </ul>
-            <div class="tags"><span>SQL</span><span>POS</span><span>Dashboards</span></div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec gutter" id="seguridad">
-    <div class="inner">
-      <div class="label">
-        <span class="path" data-en="~/security">~/seguridad</span>
-        <h2 data-en="Applied security">Seguridad aplicada</h2>
-      </div>
-      <div class="body">
-        <p data-en="Where I've put each area into practice, and what I'm training in now.">Dónde he puesto en práctica cada área, y en qué me estoy formando ahora.</p>
-        <div class="matrix">
-          <table>
-            <thead><tr>
-              <th data-en="Area">Área</th><th data-en="Evidence">Evidencia</th><th data-en="Status">Estado</th>
-            </tr></thead>
-            <tbody>
-              <tr><td data-en="Access &amp; user control">Accesos y usuarios</td><td data-en="JWT authentication and user management on the academic platform; roles and permissions in webAMG.">Autenticación JWT y gestión de usuarios en la plataforma académica; roles y permisos en webAMG.</td><td><span class="st ok" data-en="In production">En producción</span></td></tr>
-              <tr><td>Linux</td><td data-en="Deployment and administration of a Linux VPS running Docker.">Despliegue y administración de un servidor VPS Linux con Docker.</td><td><span class="st ok" data-en="In production">En producción</span></td></tr>
-              <tr><td data-en="Databases">Bases de datos</td><td data-en="Design and administration in PostgreSQL and SQL Server for an ERP and an institutional platform.">Diseño y administración en PostgreSQL y SQL Server para un ERP y una plataforma institucional.</td><td><span class="st ok" data-en="In production">En producción</span></td></tr>
-              <tr><td data-en="Cybersecurity">Ciberseguridad</td><td data-en="Cisco Introduction to Cybersecurity (2025): network defense, system safeguards, threat analysis and security administration.">Cisco Introducción a la Ciberseguridad (2025): defensa de la red, salvaguardias del sistema, análisis de amenazas y administración de ciberseguridad.</td><td><span class="st ok" data-en="Certified">Certificado</span></td></tr>
-              <tr><td data-en="Networks">Redes</td><td data-en="Computer Networks 1 and 2 (USAC); Cisco Packet Tracer: networks and IoT (2025).">Redes de Computadoras 1 y 2 (USAC); Cisco Packet Tracer: redes e IoT (2025).</td><td><span class="st ok" data-en="Certified">Certificado</span></td></tr>            </tbody>
-          </table>
-        </div>
+        <p data-en="I'm Alejandro, a final-semester Computer Science and Systems Engineering student at Universidad de San Carlos de Guatemala, Centro Universitario del Norte. I've completed my degree on schedule and finish all coursework in November 2026.">Soy Alejandro, estudiante de último semestre de Ingeniería en Ciencias y Sistemas en la Universidad de San Carlos de Guatemala, Centro Universitario del Norte. Llevo la carrera en el tiempo establecido y cierro pensum en noviembre de 2026.</p>
+        <p data-en="I've built web platforms with JWT authentication and role-based permissions, an ERP with point of sale, and event-driven integrations on AWS with Lambda, API Gateway, EventBridge, SQS and DynamoDB, connected to Odoo as CRM and ERP. What drives me is making systems that don't speak the same language work together reliably: with retries, no duplicates and secure access.">He desarrollado plataformas web con autenticación JWT y permisos por rol, un ERP con punto de venta e integraciones orientadas a eventos en AWS con Lambda, API Gateway, EventBridge, SQS y DynamoDB, conectadas a Odoo como CRM y ERP. Lo que más me motiva es lograr que sistemas que no hablan el mismo idioma trabajen juntos de forma confiable: con reintentos, sin duplicados y con accesos seguros.</p>
+        <p data-en="I work with Scrum, Git and CI/CD, and I pick up new technologies quickly: I learned AWS serverless on my own initiative to build Admisiones Serverless, and I'm ready to learn whatever platform the team needs. I'm looking to grow long-term in an organization driving digital transformation, and I'm available to relocate to Guatemala City.">Trabajo con Scrum, Git y CI/CD, y tengo facilidad para aprender nuevas tecnologías: aprendí AWS serverless por iniciativa propia para construir Admisiones Serverless, y estoy dispuesto a aprender la plataforma que el equipo necesite. Busco crecer a largo plazo en una organización que impulse la transformación digital, con disponibilidad para trasladarme a Ciudad de Guatemala.</p>
       </div>
     </div>
   </section>
@@ -247,10 +197,27 @@ footer .inner{padding-block:28px;display:flex;justify-content:space-between;flex
       </div>
       <div class="body">
         <div class="projects">
+          <article class="proj feat">
+            <span class="idx" data-en="featured · cloud · AWS">destacado · cloud · AWS</span>
+            <h3>Admisiones Serverless</h3>
+            <p data-en="Event-driven integration for a university admissions process. When an applicant submits the form, the system registers them exactly once and, independently and fault-tolerantly, creates the lead in the CRM and invoices the admission fee in the ERP. If one system is down, the form keeps working and sync retries on its own.">Integración orientada a eventos para el proceso de admisión de una universidad. Cuando un aspirante envía el formulario, el sistema lo registra una sola vez y, de forma independiente y tolerante a fallos, crea el lead en el CRM y factura la cuota de admisión en el ERP. Si un sistema está caído, el formulario sigue funcionando y la sincronización se reintenta sola.</p>
+            <div class="flow" aria-label="Flujo de la arquitectura"><span data-en="Web form">Formulario</span><i>→</i><span>API Gateway</span><i>→</i><span>Lambda</span><i>→</i><span>EventBridge</span><i>→</i><span>SQS + DLQ</span><i>→</i><span data-en="Odoo CRM / ERP">Odoo CRM / ERP</span></div>
+            <ul class="points">
+              <li data-en="Idempotent from end to end: resubmitting the form or retrying a message never duplicates applicants, leads or invoices.">Idempotente de punta a punta: reenviar el formulario o reintentar un mensaje no duplica aspirantes, leads ni facturas.</li>
+              <li data-en="One queue per target system, partial batch failures and dead-letter queues after 3 attempts.">Una cola por sistema destino, fallos parciales por lote y colas DLQ tras 3 intentos.</li>
+              <li data-en="Least-privilege IAM, secrets in SSM Parameter Store and a public status endpoint that exposes no personal data.">IAM de mínimo privilegio, secretos en SSM Parameter Store y consulta pública de estado sin datos personales.</li>
+              <li data-en="Infrastructure as code with AWS SAM, unit tests and a GitHub Actions pipeline with OIDC.">Infraestructura como código con AWS SAM, pruebas unitarias y pipeline en GitHub Actions con OIDC.</li>
+            </ul>
+            <div class="tags"><span>Node.js</span><span>AWS Lambda</span><span>API Gateway</span><span>EventBridge</span><span>SQS</span><span>DynamoDB</span><span>AWS SAM</span><span>Odoo</span><span>GitHub Actions</span></div>
+            <div class="links">
+              <a class="proj-link" href="https://github.com/dirac271/admisiones-serverless" target="_blank" rel="noopener" data-en="Source code →">Código fuente →</a>
+              <a class="proj-link" href="https://github.com/dirac271/admisiones-serverless#decisiones-de-diseño" target="_blank" rel="noopener" data-en="Design decisions →">Decisiones de diseño →</a>
+            </div>
+          </article>
           <article class="proj">
             <span class="idx" data-en="web + mobile">web + móvil</span>
             <h3>webAMG</h3>
-            <p data-en="Django web and mobile app to manage projects, phases, tasks and notifications, with per-user permissions and a Spanish/English interface for a team managed from Canada.">App web y móvil en Django para gestionar proyectos, fases, tareas y notificaciones, con permisos por usuario e interfaz español/inglés para un equipo con jefatura en Canadá.</p>
+            <p data-en="Django web and mobile app to manage projects, phases, tasks and notifications, with per-user permissions and a bilingual Spanish/English interface.">App web y móvil en Django para gestionar proyectos, fases, tareas y notificaciones, con permisos por usuario e interfaz bilingüe español/inglés.</p>
             <div class="tags"><span>Django</span><span>Python</span><span>i18n</span></div>
           </article>
           <article class="proj">
@@ -270,6 +237,86 @@ footer .inner{padding-block:28px;display:flex;justify-content:space-between;flex
     </div>
   </section>
 
+  <section class="sec gutter" id="experiencia">
+    <div class="inner">
+      <div class="label">
+        <span class="path" data-en="~/experience">~/experiencia</span>
+        <h2 data-en="Experience">Experiencia</h2>
+      </div>
+      <div class="body">
+        <article class="job">
+          <div class="when" data-en="May 2026 — now">may 2026 — hoy</div>
+          <div>
+            <h3 data-en="Software Developer">Desarrollador de Software</h3>
+            <span class="org">Asociación Maya</span>
+            <ul>
+              <li data-en="I develop and maintain AMG, a Django web and mobile system to manage projects, phases, tasks and notifications.">Desarrollo y mantengo AMG, sistema web y móvil en Django para gestionar proyectos, fases, tareas y notificaciones.</li>
+              <li data-en="Role-based access control with per-user permissions.">Control de acceso con roles y permisos por usuario.</li>
+              <li data-en="Bilingual Spanish/English support (internationalization).">Soporte bilingüe español/inglés (internacionalización).</li>
+            </ul>
+            <div class="tags"><span>Django</span><span>Python</span><span>i18n</span></div>
+          </div>
+        </article>
+        <article class="job">
+          <div class="when" data-en="Professional internship">Práctica profesional</div>
+          <div>
+            <h3 data-en="Full Stack Developer">Desarrollador Full Stack</h3>
+            <span class="org"><span class="todo" data-en="institution">institución</span></span>
+            <ul>
+              <li data-en="Institutional web platform for academic administration.">Plataforma web institucional para administración académica.</li>
+              <li data-en="JWT authentication and user management module.">Autenticación con JWT y módulo de gestión de usuarios.</li>
+              <li data-en="Cloud file storage with Cloudflare R2.">Almacenamiento de archivos en la nube con Cloudflare R2.</li>
+              <li data-en="Docker containers deployed on a Linux VPS.">Contenedores Docker desplegados en un servidor Linux (VPS).</li>
+            </ul>
+            <div class="tags"><span>ASP.NET Core</span><span>React</span><span>PostgreSQL</span><span>Docker</span><span>Linux</span><span>JWT</span></div>
+          </div>
+        </article>
+        <article class="job">
+          <div class="when" data-en="Jan — Jul 2026 · Freelance">ene — jul 2026 · Freelance</div>
+          <div>
+            <h3 data-en="Software Developer">Desarrollador de Software</h3>
+            <span class="org" data-en="Agricultural company">Empresa agropecuaria</span>
+            <ul>
+              <li data-en="ERP and point-of-sale system for sales, inventory and financial control.">Sistema ERP y punto de venta para ventas, inventario y control financiero.</li>
+              <li data-en="Database design and administrative dashboards for decision-making.">Diseño de la base de datos y dashboards administrativos para la toma de decisiones.</li>
+            </ul>
+            <div class="tags"><span>SQL</span><span>POS</span><span>Dashboards</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec gutter" id="integracion">
+    <div class="inner">
+      <div class="label">
+        <span class="path" data-en="~/integration">~/integración</span>
+        <h2 data-en="Integration &amp; cloud">Integración y cloud</h2>
+      </div>
+      <div class="body">
+        <p data-en="Where I've applied each area, with evidence you can verify.">Dónde he aplicado cada área, con evidencia que se puede verificar.</p>
+        <div class="matrix">
+          <table>
+            <thead><tr>
+              <th data-en="Area">Área</th><th data-en="Evidence">Evidencia</th><th data-en="Status">Estado</th>
+            </tr></thead>
+            <tbody>
+              <tr><td data-en="Serverless on AWS">Serverless en AWS</td><td data-en="Lambda, API Gateway, EventBridge, SQS and DynamoDB defined with AWS SAM in Admisiones Serverless.">Lambda, API Gateway, EventBridge, SQS y DynamoDB definidos con AWS SAM en Admisiones Serverless.</td><td><span class="st learn" data-en="Project">Proyecto</span></td></tr>
+              <tr><td data-en="Event-driven integration">Integración por eventos</td><td data-en="EventBridge fan-out, per-target queues, retries, DLQs and idempotency.">Fan-out con EventBridge, colas por destino, reintentos, DLQ e idempotencia.</td><td><span class="st learn" data-en="Project">Proyecto</span></td></tr>
+              <tr><td>ERP</td><td data-en="Custom ERP and point of sale for sales, inventory and financial control at an agricultural company.">ERP y punto de venta a la medida para ventas, inventario y control financiero de una empresa agropecuaria.</td><td><span class="st ok" data-en="In production">En producción</span></td></tr>
+              <tr><td data-en="CRM &amp; ERP integration">Integración CRM y ERP</td><td data-en="Odoo integration via JSON-RPC: leads in crm.lead and admission-fee invoicing, without duplicates on retries.">Integración con Odoo vía JSON-RPC: leads en crm.lead y facturación de la cuota de admisión, sin duplicados ante reintentos.</td><td><span class="st learn" data-en="Project">Proyecto</span></td></tr>
+              <tr><td data-en="REST APIs &amp; full stack">APIs REST y full stack</td><td data-en="ASP.NET Core REST API with a React frontend for an academic platform; webAMG in Django.">API REST en ASP.NET Core con frontend en React para una plataforma académica; webAMG en Django.</td><td><span class="st ok" data-en="In production">En producción</span></td></tr>
+              <tr><td data-en="Databases">Bases de datos</td><td data-en="PostgreSQL and SQL Server in an ERP and an institutional platform; DynamoDB (NoSQL) in the serverless integration.">PostgreSQL y SQL Server en un ERP y una plataforma institucional; DynamoDB (NoSQL) en la integración serverless.</td><td><span class="st ok" data-en="In production">En producción</span></td></tr>
+              <tr><td data-en="CI/CD &amp; DevOps">CI/CD y DevOps</td><td data-en="Docker on a production Linux VPS; GitHub Actions pipeline with tests, template validation and OIDC deployment to AWS.">Docker en un VPS Linux en producción; pipeline en GitHub Actions con pruebas, validación de plantilla y despliegue a AWS con OIDC.</td><td><span class="st ok" data-en="In production">En producción</span></td></tr>
+              <tr><td data-en="Security">Seguridad</td><td data-en="JWT authentication, roles and permissions, least-privilege IAM; Cisco Introduction to Cybersecurity (2025).">Autenticación JWT, roles y permisos, IAM de mínimo privilegio; Cisco Introducción a la Ciberseguridad (2025).</td><td><span class="st ok" data-en="Certified">Certificado</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <section class="sec gutter" id="habilidades">
     <div class="inner">
       <div class="label">
@@ -278,13 +325,14 @@ footer .inner{padding-block:28px;display:flex;justify-content:space-between;flex
       </div>
       <div class="body">
         <dl class="kv">
-          <div><dt data-en="Databases">Bases de datos</dt><dd>PostgreSQL, SQL Server</dd></div>
-          <div><dt data-en="Languages">Lenguajes</dt><dd>Python, C#, JavaScript</dd></div>
-          <div><dt data-en="Infrastructure">Infraestructura</dt><dd>Linux, Docker, VPS, Cloudflare R2</dd></div>
+          <div><dt data-en="Languages">Lenguajes</dt><dd>Python, C#, JavaScript, Node.js</dd></div>
           <div><dt>Frameworks</dt><dd>Django, ASP.NET Core, React</dd></div>
+          <div><dt data-en="Cloud &amp; integration">Cloud e integración</dt><dd>AWS (Lambda, API Gateway, EventBridge, SQS, DynamoDB, SAM), API REST, Odoo</dd></div>
+          <div><dt data-en="Databases">Bases de datos</dt><dd>PostgreSQL, SQL Server, DynamoDB</dd></div>
+          <div><dt data-en="Infrastructure &amp; DevOps">Infraestructura y DevOps</dt><dd data-en="Linux, Docker, VPS, Cloudflare R2, GitHub Actions (CI/CD)">Linux, Docker, VPS, Cloudflare R2, GitHub Actions (CI/CD)</dd></div>
+          <div><dt data-en="Version control &amp; methods">Versiones y metodologías</dt><dd>Git, GitHub, Scrum/Agile</dd></div>
           <div><dt data-en="Data">Datos</dt><dd>Power BI, Tableau, Excel</dd></div>
-          <div><dt data-en="Version control">Versiones</dt><dd>Git, GitHub</dd></div>
-          <div><dt data-en="University · 2022 — now">Universidad · 2022 — hoy</dt><dd data-en="Computer Science and Systems Engineering, USAC – CUNOR. Tenth semester.">Ingeniería en Ciencias y Sistemas, USAC – CUNOR. Décimo semestre.</dd></div>
+          <div><dt data-en="University · 2022 — now">Universidad · 2022 — hoy</dt><dd data-en="Computer Science and Systems Engineering, USAC – CUNOR. Completed on schedule; all coursework finished November 2026.">Ingeniería en Ciencias y Sistemas, USAC – CUNOR. Carrera en el tiempo establecido; cierre de pensum: noviembre 2026.</dd></div>
           <div><dt data-en="High school · 2020 — 2021">Diversificado · 2020 — 2021</dt><dd data-en="High school diploma in Sciences and Letters.">Bachillerato en Ciencias y Letras.</dd></div>
         </dl>
       </div>
@@ -299,8 +347,8 @@ footer .inner{padding-block:28px;display:flex;justify-content:space-between;flex
       </div>
       <div class="body">
         <dl class="contact">
-          <div><dt data-en="Email">Correo</dt><dd><span class="todo" data-en="your email">tu correo</span></dd></div>
-          <div><dt>GitHub</dt><dd>github.com/<span class="todo" data-en="username">usuario</span></dd></div>
+          <div><dt data-en="Email">Correo</dt><dd><a href="mailto:oscarlechero@hotmail.com">oscarlechero@hotmail.com</a></dd></div>
+          <div><dt data-en="GitHub">GitHub</dt><dd><a href="https://github.com/dirac271" target="_blank" rel="noopener">github.com/dirac271</a></dd></div>
           <div><dt>LinkedIn</dt><dd>linkedin.com/in/<span class="todo" data-en="username">usuario</span></dd></div>
         </dl>
       </div>
